@@ -19,18 +19,18 @@ def main():
     _sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     _sock.settimeout(300)
     cert_path = path.join(path.abspath(path.dirname(__file__)), "certs")
-    host_address = ("127.0.0.1", 5684)
-    _sock.bind(host_address)
+    host_address = ("212.201.8.88", 9999)
 
     # Set up a server side DTLS socket
     dtls_sock = wrap_server(_sock,
                             keyfile=path.join(cert_path, "keycert.pem"),
                             certfile=path.join(cert_path, "keycert.pem"),
                             ca_certs=path.join(cert_path, "ca-cert.pem"), )
-
+    dtls_sock.bind(host_address)
+    dtls_sock.listen(1)
     print ("listening for peer")
-    server = CoAPServer(host_address,
-                        sock=dtls_sock)
+
+    server = CoAPServer(host_address, sock=dtls_sock)
     server.add_resource('storage/', Storage())
     print("CoAP Server start on " + host_address[0] + ":" + str(host_address[1]))
     while True:
@@ -38,8 +38,8 @@ def main():
         # Connect the CoAP server to the newly created socket
         time.sleep(0.5)
         try:
-            dtls_sock.listen(1)
-            print("listening")
+            # dtls_sock.listen(1)
+            server.listen(1)
         except KeyboardInterrupt:
             print "Server Shutdown"
             server.close()
