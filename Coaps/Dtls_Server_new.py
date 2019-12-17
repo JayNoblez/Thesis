@@ -29,15 +29,13 @@ def main():
     dtls_sock.listen(1)
     print ("listening for peer")
 
+    # Connect the Listening DTLS socket to CoAP
     server = CoAPServer(host_address, sock=dtls_sock)
     server.add_resource('storage/', Storage())
     print("CoAP Server start on " + host_address[0] + ":" + str(host_address[1]))
     while True:
-        # addr = _ssock.listen()
-        # Connect the CoAP server to the newly created socket
         time.sleep(0.5)
         try:
-            # dtls_sock.listen(1)
             server.listen(1)
         except KeyboardInterrupt:
             print "Server Shutdown"
