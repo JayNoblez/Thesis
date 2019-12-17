@@ -1,4 +1,11 @@
 On here, there are two scenarios.
 
-One of the servers simply implement DTLS.
-Example use case implements DTLS with Coap as the Application Protocol
+1. Simply implementing DTLS over wifi and sending Random Data to the server side from a Raspberry pi acting as a client.
+
+2. Extending the example use case by using CoAP implementation to show the exchange of DTLS when CoAP messages are being sent. This scenario illustrates the use of resources that could be defined on the server side and called from the client devices.
+
+Libraries used include:
+
+(a). Certificates uses OpenSSL. Include all commands and resource that has been used to generate the certificates and keys etc.
+(b). The DTLS library at https://github.com/rbit/pydtls is used for the DTLS connections. #pip install Dtls 
+(c). The Coapthon Library for CoAP  
