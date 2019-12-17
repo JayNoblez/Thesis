@@ -1,1 +1,1 @@
-txt
+Uses the Atom Pymakr plugin to connect over the Pycom gpy to the THM Whitelisted Server
