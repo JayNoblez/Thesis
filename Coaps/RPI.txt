@@ -9,3 +9,10 @@ Libraries used include:
 (a). Certificates uses OpenSSL. Include all commands and resource that has been used to generate the certificates and keys etc.
 (b). The DTLS library at https://github.com/rbit/pydtls is used for the DTLS connections. #pip install Dtls 
 (c). The Coapthon Library for CoAP  
+
+
+You can call the client code by using syntax: 
+python DTLS_CoAPclient.py --path=coap://212.201.8.88:9999/storage -o "GET"
+
+- storage is a predefined resource defined in the server. You can POST, PUT , UPDATE, DELETE resources along a well-known resource uri as well.
+
