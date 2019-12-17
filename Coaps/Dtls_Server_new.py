@@ -6,11 +6,10 @@ from os import path
 from coapthon.server.coap import CoAP as CoAPServer
 from exampleresources import Storage
 import time
+
 # Logging
 from logging import basicConfig, DEBUG, getLogger, root, Filter
-
 basicConfig(level=DEBUG, format="%(asctime)s - %(threadName)-30s - %(name)s - %(levelname)s - %(message)s")
-
 _logger = getLogger(__name__)
 
 
@@ -49,49 +48,7 @@ def main():
 if __name__ == "__main__":
     main()
 
-    # cb_ignore_listen_exception=_cb_ignore_listen_exception
-    # if addr:
-    #     print("Completed listening for peer: {}".format(addr))
-    #     print(_ssock)
-    #     break
-#
-# print("Accepting")
-# conn = _ssock.accept()[0]
-#
-# while True:
-#     addr = _ssock.listen()
-#     assert not addr
-#     try:
-#         conn.do_handshake()
-#     except SSLError as err:
-#         if err.errno == 504:
-#             continue
-#         raise
-#     print "Completed handshaking with peer"
-#     break
-#
-# while True:
-#     addr = _ssock.listen()
-#     assert not addr
-#     try:
-#         message = conn.read()
-#     except SSLError as err:
-#         if err.errno == 502:
-#             continue
-#         if err.args[0] == SSL_ERROR_ZERO_RETURN:
-#             break
-#         raise
-#     print message
-#     conn.write("Back to you: " + message)
-#
-# while True:
-#     peer_address = _ssock.listen()
-#     assert not peer_address
-#     try:
-#         s = conn.shutdown()
-#         s.shutdown(socket.SHUT_RDWR)
-#     except SSLError as err:
-#         if err.errno == 502:
-#             continue
-#         raise
-#     break
+# To-dos: Improve code style
+# Get the IP address of the server from the Command
+# Use OOP
+# Handle Errors
