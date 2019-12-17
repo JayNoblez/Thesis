@@ -1,0 +1,4 @@
+On here, there are two scenarios.
+
+One of the servers simply implement DTLS.
+Example use case implements DTLS with Coap as the Application Protocol
