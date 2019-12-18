@@ -2,3 +2,7 @@ Uses the Atom Pymakr plugin to connect over the Pycom gpy to the THM Whitelisted
 
 main.py runs on the pycom module - as client code and connect to a remotely listening server.
 connect_nb.py connects the pycom module to the vodafone network.
+
+The certificate files are passed into the pycom module over FTP or ampy. Whichever way possible to access to the root file directory on the pycom device. 
+
+Use os.listdir("/flash/certs") to verify that the certs are correctly placed in the flash directory path. Won't work otherwise.
