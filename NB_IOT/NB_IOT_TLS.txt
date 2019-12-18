@@ -6,3 +6,8 @@ connect_nb.py connects the pycom module to the vodafone network.
 The certificate files are passed into the pycom module over FTP or ampy. Whichever way possible to access to the root file directory on the pycom device. 
 
 Use os.listdir("/flash/certs") to verify that the certs are correctly placed in the flash directory path. Won't work otherwise.
+
+######
+Server code is a typical TCP server, implementing the normal python socket API socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+Usage: SSH into server and run remote server to listen for incoming connections from the devices that would want to communicate.
+The Certificate chain pre-generated with openSSL is contained in the code, verified on connect. 
