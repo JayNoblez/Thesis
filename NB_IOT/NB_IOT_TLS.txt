@@ -1,3 +1,4 @@
 Uses the Atom Pymakr plugin to connect over the Pycom gpy to the THM Whitelisted Server
 
 main.py runs on the pycom module - as client code and connect to a remotely listening server.
+connect_nb.py connects the pycom module to the vodafone network.
