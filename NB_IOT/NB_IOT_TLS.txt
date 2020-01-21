@@ -1,11 +1,13 @@
-Uses the Atom Pymakr plugin to connect over the Pycom gpy to the THM Whitelisted Server
+This part of the project contains scripts to test security implementation for TLSv1.2 with a pycom GPy module. To follow this project kindly read the instructions carefully:
 
-main.py runs on the pycom module - as client code and connect to a remotely listening server.
-connect_nb.py connects the pycom module to the vodafone network.
+The ClientCode is written in Micropython. To connect to/ upload files to the Gpy module, it is required to have the Atom Pymakr Package installed and configured to the right serial port.  
+At the repl prompt, verify that the files are properly uploaded. (import os, os.lisdir('/flash'))
 
-The certificate files are passed into the pycom module over FTP or ampy. Whichever way possible to access to the root file directory on the pycom device. 
+main.py from this repository runs client side socket code on the pycom module, and connect to a remotely listening Whitelisted server at (212.201.8.88, 8083) #IP Address, port of server in the Vodafone backend.
+It also passes X509 certificates to the SSL socket. 
+connect_nb.py initiates the connection from the pycom module to the vodafone network.
 
-Use os.listdir("/flash/certs") to verify that the certs are correctly placed in the flash directory path. Won't work otherwise.
+The certificates can be placed in the flash directory - can be passed into the pycom module over FTP or ampy. Again, use os.listdir("/flash/certs") to verify that the certs are correctly placed in the flash directory path as it would not work otherwise.
 
 ######
 Server code is a typical TCP server, implementing the normal python socket API socket.socket(socket.AF_INET, socket.SOCK_STREAM)
